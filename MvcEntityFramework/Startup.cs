@@ -30,9 +30,17 @@ namespace MvcEntityFramework
         public void ConfigureServices(IServiceCollection services)
         {
             String cadena = Configuration.GetConnectionString("casasqlhospital");
-            services.AddTransient<RepositoryEnfermos>();
-            services.AddDbContext<EnfermosContext>(options =>
-            options.UseSqlServer(cadena)); 
+            services.AddTransient<RepositoryDoctores>();
+
+            services.AddTransient<RepositoryEmpleados>();
+            services.AddDbContext<EmpleadosContext>(options =>
+            options.UseSqlServer(cadena));
+
+            services.AddTransient<RepositoryPlantilla>();
+            services.AddTransient<RespositoryEmpleadosHospital>();
+            services.AddTransient<RepositoryTodosEmpleados>();
+            services.AddDbContext<HospitalContext>(options =>
+            options.UseSqlServer(cadena));
 
             //String cadena = Configuration.GetConnectionString("casamysqlhospital");
             //string cadena = "Data Source=LOCALHOST;Initial Catalog=HOSPITAL;Integrated Security=True";

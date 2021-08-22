@@ -12,6 +12,7 @@ namespace MvcEntityFramework.Models
     {
         [Key]
         [Column("INSCRIPCION")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Inscripcion { get; set; }
         [Column("APELLIDO")]
         public String Apellido { get; set; }

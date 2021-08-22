@@ -1,0 +1,15 @@
+﻿@model List<TodosEmpleados>
+
+    <a asp-action="TodosEmpleadosCod" asp-controller="TodosEmpleados">Buscar empleados</a>
+    <a asp-action="EmpleadosDesplegable" asp-controller="TodosEmpleados">Desplegable</a>
+    <table class="table table-bordered">
+        <table class="table table-bordered">
+            @foreach (TodosEmpleados empleado in Model)
+            {
+                <tr>
+                    <td>@empleado.Apellido</td>
+                    <td>@empleado.Salario</td>
+                    <td>@empleado.IdDepart</td>
+                </tr>
+            }
+        </table>

@@ -10,7 +10,7 @@
     @foreach(Genero gen in generos)
     {
         <li class="list-group-item">
-           <a asp-controller="Enfermos" asp-action="EnfermosGenero" asp-route-generos="@gen.Value">
+           <a asp-controller="Enfermos" asp-action="EnfermosGenero" asp-route-genero="@gen.Value">
                @gen.Text
            </a>
         </li>

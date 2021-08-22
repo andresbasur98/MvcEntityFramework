@@ -21,6 +21,12 @@ namespace MvcEntityFramework.Controllers
             return View(enfermos);
         }
 
+        public IActionResult EliminarEnfermo(int inscripcion)
+        {
+            this.repo.EliminarEnfermo(inscripcion);
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Details(int idinscripcion)
         {
             Enfermo enfermo = this.repo.BuscarEnfermo(idinscripcion);
@@ -42,6 +48,32 @@ namespace MvcEntityFramework.Controllers
                 return View();
             }
 
+        }
+
+        public IActionResult InsertarEnfermo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult InsertarEnfermo(int inscripcion, String apellido, String direccion, DateTime fechanac, String genero, String nss)
+        {
+            this.repo.InsertarEnfermo(inscripcion, apellido, direccion, fechanac, genero, nss);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult UpdateEnfermo(int inscripcion)
+        {
+            Enfermo enfermo = this.repo.BuscarEnfermo(inscripcion);
+            return View(enfermo);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateEnfermo(Enfermo enfermo)
+        {
+            this.repo.ModificarEnfermo(enfermo.Inscripcion, enfermo.Apellido, enfermo.Direccion,
+                enfermo.FechaNacimiento, enfermo.Sexo, enfermo.SeguridadSocial);
+            return RedirectToAction("Index");
         }
     }
 }

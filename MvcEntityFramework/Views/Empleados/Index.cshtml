@@ -1,0 +1,28 @@
+﻿@model List<Empleado>;
+
+<h1>Empleados</h1>
+
+<a asp-action="IncrementarSalarios" asp-controller="Empleados">Ir a Incrementar Salarios</a>
+<a asp-action="EmpleadosDepartamentoLambda" asp-controller="Empleados">Departamentos Lambda</a>
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Apellido</th>
+                <th>Oficio</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Empleado emp in Model)
+            {
+                <tr>
+                    <td>@emp.IdEmpleado</td>
+                    <td>@emp.Apellido</td>
+                    <td>@emp.Oficio</td>
+                    <td>@emp.Salario</td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

@@ -1,0 +1,9 @@
+﻿@model List<String> 
+
+<h1>Selecciona: </h1>
+<select>
+    @foreach(String algo in Model)
+    {
+        <option>@algo</option>
+    }
+</select> 

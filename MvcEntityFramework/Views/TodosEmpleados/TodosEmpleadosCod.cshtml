@@ -1,0 +1,39 @@
+﻿@model ProcedimientoEmpleado
+
+<h1>Buscar por code</h1>
+<form method="post">
+    <label>Introduce el código</label>
+    <input type="text" name="codigo" />
+
+    <button type="submit">Buscar</button>
+</form>
+
+
+@if (Model != null)
+{
+    <h2 style="color: blue">
+        Suma salarial: @Model.SumaSalarial
+    </h2>
+    <h2 style="color: red">
+        Media salarial: @Model.MediaSalarial
+    </h2>
+    <table class="table table-bordered table-danger">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Función</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (TodosEmpleados emp in Model.Empleados)
+            {
+                <tr>
+                    <td>@emp.Apellido</td>
+                    <td>@emp.Trabajo</td>
+                    <td>@emp.Salario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,33 @@
+﻿@model Enfermo
+
+<h1>UpdateEnfermo</h1>
+
+<form method="post">
+    @*<label>Inscripción</label>*@
+    <input type="hidden" name="inscripcion" value="@Model.Inscripcion"/>
+
+    <label>Apellido</label>
+    <input type="text" name="apellido" value="@Model.Apellido"/>
+    <br />
+    <label>Direccion</label>
+    <input type="text" name="direccion" value="@Model.Direccion" />
+    <br />
+
+    <label>Fecha nacimiento</label>
+    <input type="text" name="fechanacimiento" value="@Model.FechaNacimiento" />
+    <br />
+
+    <label>Género</label>
+    <input type="text" name="sexo" value="@Model.Sexo" />
+    <br />
+
+    <label>Nº Seguridad Social</label>
+    <input type="text" name="seguridadsocial" value="@Model.SeguridadSocial" />
+    <br />
+
+    <button type="submit" class="btn btn-primary">
+        Insertar Enfermo
+    </button>
+</form>
+
+<a asp-action="Index" asp-controller="Enfermos">Volver</a>

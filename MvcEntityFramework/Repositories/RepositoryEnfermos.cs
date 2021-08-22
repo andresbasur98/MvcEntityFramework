@@ -69,5 +69,41 @@ namespace MvcEntityFramework.Repositories
                            select datos;
             return consulta.ToList();
         }
+
+
+        public void EliminarEnfermo(int inscripcion)
+        {
+            // Necesitamos buscar la entidad a eliminar
+            Enfermo enf = this.BuscarEnfermo(inscripcion);
+            // ELIMINAMOS EL OBJETO DEL CONTEXT Y SU DBSET
+            this.context.Enfermos.Remove(enf);
+            // Si desdeamos almacenar los cambios en BBDD
+            this.context.SaveChanges();
+        }
+
+        public void InsertarEnfermo(int inscripcion, String apellido, String direccion, DateTime fechanac, String genero, String nss)
+        {
+            Enfermo enfermo = new Enfermo();
+            enfermo.Inscripcion = inscripcion;
+            enfermo.Apellido = apellido;
+            enfermo.Direccion = direccion;
+            enfermo.FechaNacimiento = fechanac;
+            enfermo.Sexo = genero;
+            enfermo.SeguridadSocial = nss;
+            this.context.Enfermos.Add(enfermo);
+            this.context.SaveChanges();
+        }
+
+        public void ModificarEnfermo(int inscripcion, String apellido, String direccion, 
+            DateTime fechanac, String genero, String nss)
+        {
+            Enfermo enfermo = this.BuscarEnfermo(inscripcion);
+            enfermo.Apellido = apellido;
+            enfermo.Direccion = direccion;
+            enfermo.FechaNacimiento = fechanac;
+            enfermo.Sexo = genero;
+            enfermo.SeguridadSocial = nss;
+            this.context.SaveChanges();
+        }
     }
 }
